@@ -158,9 +158,21 @@ a { color: inherit; text-decoration: none; }
   position: relative;
 }
 
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .project-card {
   position: relative;
-  display: none;
+  display: flex;
+  flex: 0 0 calc(100% - 52px);
   flex-direction: column;
   gap: 18px;
   background-color: var(--bg-card);
@@ -170,17 +182,47 @@ a { color: inherit; text-decoration: none; }
   border-left: 4px solid var(--card-accent, var(--accent));
   border-radius: var(--card-radius);
   padding: 22px 22px 20px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  opacity: 0.5;
+  transition: border-color 0.15s ease, opacity 0.3s ease;
 }
 
 .project-card.active {
-  display: flex;
+  opacity: 1;
 }
 
 .project-card:hover {
   border-color: var(--ink);
   border-left-color: var(--card-accent, var(--accent));
+}
+
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.carousel-next:hover {
+  background: var(--accent);
+  color: var(--bg-page);
+}
+
+.carousel-next:active {
+  transform: translateY(-50%) scale(0.94);
 }
 
 .project-info {
@@ -216,11 +258,10 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   font-size: 12.5px;
-  cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.project-open:hover {
+.project-card:hover .project-open {
   background: var(--card-accent, var(--accent));
   color: var(--bg-page);
 }
@@ -232,16 +273,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-secondary);
 }
 
-.carousel-hint {
-  display: block;
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--text-faint);
-}
-
 .shots-frame {
   position: relative;
-  cursor: auto;
 }
 
 .shots-frame::after {
@@ -266,7 +299,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-shots img {
-  height: 190px;
+  height: 260px;
   width: auto;
   flex-shrink: 0;
   border-radius: 8px;
@@ -296,7 +329,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   .project-shots img {
-    height: 210px;
+    height: 320px;
   }
 }
 
@@ -329,8 +362,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Accessible focus states */
 .btn:focus-visible,
-.project-open:focus-visible,
 .project-card:focus-visible,
+.carousel-next:focus-visible,
 .dot:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;

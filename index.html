@@ -18,7 +18,7 @@
   <meta name="twitter:image" content="https://akshaysantosh.github.io/assets/og-image.jpg" />
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
   <main>
@@ -32,49 +32,51 @@
     <section class="projects">
       <h2>Stuff I've been working on...</h2>
       <div class="project-carousel" id="projectCarousel">
-        <div class="project-card active" tabindex="0" role="button" aria-label="Show next app" style="--card-accent:#b5541f">
-          <div class="project-info">
-            <img class="project-icon" src="assets/icon-pricetrack.png" alt="" width="56" height="56" />
-            <h3>PriceTrack <a class="project-open" href="https://github.com/akshaysantosh/PriceTrack" target="_blank" rel="noopener noreferrer" aria-label="Open PriceTrack on GitHub">↗</a></h3>
-            <p>Scan grocery receipts and see which store — Aldi, Coles, Woolworths, Costco — is actually cheapest per item, by unit price, not just sticker price.</p>
-            <span class="carousel-hint">Tap card for next app →</span>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <a class="project-card active" href="https://github.com/akshaysantosh/PriceTrack" target="_blank" rel="noopener noreferrer" aria-label="PriceTrack — open on GitHub" style="--card-accent:#b5541f">
+              <div class="project-info">
+                <img class="project-icon" src="assets/icon-pricetrack.png" alt="" width="56" height="56" />
+                <h3>PriceTrack <span class="project-open" aria-hidden="true">↗</span></h3>
+                <p>Scan grocery receipts and see which store — Aldi, Coles, Woolworths, Costco — is actually cheapest per item, by unit price, not just sticker price.</p>
+              </div>
+              <div class="shots-frame">
+                <div class="project-shots">
+                  <img src="assets/shots/pricetrack-1.jpg" alt="PriceTrack all items list" loading="lazy" />
+                  <img src="assets/shots/pricetrack-2.jpg" alt="PriceTrack favourites with price comparison" loading="lazy" />
+                  <img src="assets/shots/pricetrack-3.jpg" alt="PriceTrack item detail with price history" loading="lazy" />
+                </div>
+              </div>
+            </a>
+            <a class="project-card" href="https://github.com/akshaysantosh/Stash" target="_blank" rel="noopener noreferrer" aria-label="Stash — open on GitHub" style="--card-accent:#6b7a4a">
+              <div class="project-info">
+                <img class="project-icon" src="assets/icon-stash.png" alt="" width="56" height="56" />
+                <h3>Stash <span class="project-open" aria-hidden="true">↗</span></h3>
+                <p>Save any link — a podcast, video, article, or post — with its title and image pulled in automatically. Tag it, edit it, and get nudged to revisit what matters.</p>
+              </div>
+              <div class="shots-frame">
+                <div class="project-shots">
+                  <img src="assets/shots/stash-1.jpg" alt="The Stash list grouped by category" loading="lazy" />
+                  <img src="assets/shots/stash-2.jpg" alt="Stash link detail view" loading="lazy" />
+                  <img src="assets/shots/stash-3.jpg" alt="Stash Vault filtered by tag" loading="lazy" />
+                </div>
+              </div>
+            </a>
+            <a class="project-card" href="https://github.com/akshaysantosh/DinoDash" target="_blank" rel="noopener noreferrer" aria-label="DinoDash — open on GitHub" style="--card-accent:#7a5a8a">
+              <div class="project-info">
+                <img class="project-icon" src="assets/icon-dinodash.png" alt="" width="56" height="56" />
+                <h3>DinoDash <span class="project-open" aria-hidden="true">↗</span></h3>
+                <p>A simple endless runner I built for my son — pick a dino, dodge asteroids, tap to jump, score climbs the longer you survive.</p>
+              </div>
+              <div class="shots-frame">
+                <div class="project-shots">
+                  <img src="assets/shots/dinodash-1.jpg" alt="DinoDash start screen with character picker" loading="lazy" />
+                  <img src="assets/shots/dinodash-2.jpg" alt="DinoDash mid-run gameplay" loading="lazy" />
+                </div>
+              </div>
+            </a>
           </div>
-          <div class="shots-frame">
-            <div class="project-shots">
-              <img src="assets/shots/pricetrack-1.jpg" alt="PriceTrack all items list" loading="lazy" />
-              <img src="assets/shots/pricetrack-2.jpg" alt="PriceTrack favourites with price comparison" loading="lazy" />
-              <img src="assets/shots/pricetrack-3.jpg" alt="PriceTrack item detail with price history" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div class="project-card" tabindex="0" role="button" aria-label="Show next app" style="--card-accent:#6b7a4a">
-          <div class="project-info">
-            <img class="project-icon" src="assets/icon-stash.png" alt="" width="56" height="56" />
-            <h3>Stash <a class="project-open" href="https://github.com/akshaysantosh/Stash" target="_blank" rel="noopener noreferrer" aria-label="Open Stash on GitHub">↗</a></h3>
-            <p>Save any link — a podcast, video, article, or post — with its title and image pulled in automatically. Tag it, edit it, and get nudged to revisit what matters.</p>
-            <span class="carousel-hint">Tap card for next app →</span>
-          </div>
-          <div class="shots-frame">
-            <div class="project-shots">
-              <img src="assets/shots/stash-1.jpg" alt="The Stash list grouped by category" loading="lazy" />
-              <img src="assets/shots/stash-2.jpg" alt="Stash link detail view" loading="lazy" />
-              <img src="assets/shots/stash-3.jpg" alt="Stash Vault filtered by tag" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div class="project-card" tabindex="0" role="button" aria-label="Show next app" style="--card-accent:#7a5a8a">
-          <div class="project-info">
-            <img class="project-icon" src="assets/icon-dinodash.png" alt="" width="56" height="56" />
-            <h3>DinoDash <a class="project-open" href="https://github.com/akshaysantosh/DinoDash" target="_blank" rel="noopener noreferrer" aria-label="Open DinoDash on GitHub">↗</a></h3>
-            <p>A simple endless runner I built for my son — pick a dino, dodge asteroids, tap to jump, score climbs the longer you survive.</p>
-            <span class="carousel-hint">Tap card for next app →</span>
-          </div>
-          <div class="shots-frame">
-            <div class="project-shots">
-              <img src="assets/shots/dinodash-1.jpg" alt="DinoDash start screen with character picker" loading="lazy" />
-              <img src="assets/shots/dinodash-2.jpg" alt="DinoDash mid-run gameplay" loading="lazy" />
-            </div>
-          </div>
+          <button class="carousel-next" type="button" aria-label="Show next app">›</button>
         </div>
         <div class="carousel-dots" role="tablist" aria-label="Choose an app">
           <button class="dot active" type="button" role="tab" aria-selected="true" aria-label="PriceTrack, 1 of 3" style="--dot-accent:#b5541f"></button>
@@ -88,12 +90,15 @@
   <script>
     (function () {
       var carousel = document.getElementById('projectCarousel');
+      var track = carousel.querySelector('.carousel-track');
       var cards = Array.prototype.slice.call(carousel.querySelectorAll('.project-card'));
       var dots = Array.prototype.slice.call(carousel.querySelectorAll('.dot'));
+      var nextBtn = carousel.querySelector('.carousel-next');
       var current = 0;
 
-      function show(index) {
+      function goTo(index) {
         current = (index + cards.length) % cards.length;
+        track.style.transform = 'translateX(-' + cards[current].offsetLeft + 'px)';
         cards.forEach(function (card, i) { card.classList.toggle('active', i === current); });
         dots.forEach(function (dot, i) {
           dot.classList.toggle('active', i === current);
@@ -101,26 +106,9 @@
         });
       }
 
-      cards.forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('.shots-frame') || e.target.closest('.project-open')) return;
-          show(current + 1);
-        });
-        card.addEventListener('keydown', function (e) {
-          if (e.target.closest('.shots-frame') || e.target.closest('.project-open')) return;
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            show(current + 1);
-          }
-        });
-      });
-
-      dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function (e) {
-          e.stopPropagation();
-          show(i);
-        });
-      });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      dots.forEach(function (dot, i) { dot.addEventListener('click', function () { goTo(i); }); });
+      window.addEventListener('resize', function () { goTo(current); });
     })();
   </script>
 </body>
