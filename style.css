@@ -3,9 +3,10 @@
   --ink: #1a1815;
   --body-text: #2b2926;
   --text-secondary: #6b6862;
-  --text-muted: #8f8b84;
-  --text-faint: #96918a;
-  --bg-page: #f7f6f3;
+  --text-muted: #7a766f;
+  --bg-page: #f8f6f1;
+  /* The tone under the grain: lifted slightly so the speckles average out to --bg-page. */
+  --paper-base: #fdfbf7;
   --bg-card: #ffffff;
   --border-card: #e5e2da;
   --accent: #5c6b57;
@@ -29,8 +30,8 @@
     --body-text: #ece8e1;
     --text-secondary: #b8b3a8;
     --text-muted: #938d81;
-    --text-faint: #726d64;
     --bg-page: #1c1a17;
+    --paper-base: #1c1a17;
     --bg-card: #262320;
     --border-card: #3a352e;
     --accent: #8fae86;
@@ -44,14 +45,22 @@
   }
 }
 
+/* Dark mode: plain dark page, no paper grain. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body { background-image: none; }
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background-color: var(--bg-page);
-  background-image: var(--grain-page);
+  background-color: var(--paper-base);
+  /* --paper-grain is set by the small script in <head> (see below); without JS the old faint SVG noise is the fallback. */
+  background-image: var(--paper-grain, var(--grain-page));
+  background-size: 192px 192px;
+  image-rendering: pixelated;
   background-repeat: repeat;
   background-attachment: fixed;
   color: var(--body-text);

@@ -18,7 +18,24 @@
   <meta name="twitter:image" content="https://akshaysantosh.github.io/assets/og-image.jpg" />
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
+  <script>
+    /* Paper grain: a 128px speckle tile (28% of pixels, alpha up to 25%, warm brown), drawn at 1.5x
+       and repeated. Same recipe as the apps' PaperBackground. Deterministic, no image file. */
+    (function () {
+      try {
+        var n = 128, c = document.createElement('canvas'); c.width = c.height = n;
+        var ctx = c.getContext('2d'), img = ctx.createImageData(n, n), s = 1234567;
+        var rnd = function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+        for (var i = 0; i < n * n; i++) {
+          var a = rnd() < 0.28 ? 1 + Math.floor(rnd() * 64) : 0;
+          img.data[i * 4] = 90; img.data[i * 4 + 1] = 70; img.data[i * 4 + 2] = 45; img.data[i * 4 + 3] = a;
+        }
+        ctx.putImageData(img, 0, 0);
+        document.documentElement.style.setProperty('--paper-grain', 'url(' + c.toDataURL() + ')');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <main>
