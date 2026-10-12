@@ -59,7 +59,7 @@ body {
   background-color: var(--paper-base);
   /* --paper-grain is set by the small script in <head> (see below); without JS the old faint SVG noise is the fallback. */
   background-image: var(--paper-grain, var(--grain-page));
-  background-size: 192px 192px;
+  background-size: var(--paper-size, 192px) var(--paper-size, 192px);
   image-rendering: pixelated;
   background-repeat: repeat;
   background-attachment: fixed;

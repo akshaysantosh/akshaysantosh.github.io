@@ -18,7 +18,7 @@
   <meta name="twitter:image" content="https://akshaysantosh.github.io/assets/og-image.jpg" />
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
   <script>
     /* Paper grain: a 128px speckle tile (28% of pixels, alpha up to 25%, warm brown), drawn at 1.5x
        and repeated. Same recipe as the apps' PaperBackground. Deterministic, no image file. */
@@ -33,6 +33,9 @@
         }
         ctx.putImageData(img, 0, 0);
         document.documentElement.style.setProperty('--paper-grain', 'url(' + c.toDataURL() + ')');
+        /* Specks are 2 device pixels wide on dense (phone) screens, 1 on standard ones. */
+        var d = window.devicePixelRatio || 1;
+        document.documentElement.style.setProperty('--paper-size', (d >= 2 ? 256 / d : 128) + 'px');
       } catch (e) {}
     })();
   </script>
