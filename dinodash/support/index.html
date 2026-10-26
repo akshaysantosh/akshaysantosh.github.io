@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DinoDash Support — Akshay Santosh</title>
+  <meta name="description" content="Help and support for DinoDash." />
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" />
+  <link rel="stylesheet" href="../../style.css?v=17" />
+  <script>
+    /* Paper grain: a 128px speckle tile (28% of pixels, alpha up to 25%, warm brown), drawn at 1.5x
+       and repeated. Same recipe as the apps' PaperBackground. Deterministic, no image file. */
+    (function () {
+      try {
+        var n = 128, c = document.createElement('canvas'); c.width = c.height = n;
+        var ctx = c.getContext('2d'), img = ctx.createImageData(n, n), s = 1234567;
+        var rnd = function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+        for (var i = 0; i < n * n; i++) {
+          var a = rnd() < 0.28 ? 1 + Math.floor(rnd() * 64) : 0;
+          img.data[i * 4] = 90; img.data[i * 4 + 1] = 70; img.data[i * 4 + 2] = 45; img.data[i * 4 + 3] = a;
+        }
+        ctx.putImageData(img, 0, 0);
+        document.documentElement.style.setProperty('--paper-grain', 'url(' + c.toDataURL() + ')');
+        /* Specks are 2 device pixels wide on dense (phone) screens, 1 on standard ones. */
+        var d = window.devicePixelRatio || 1;
+        document.documentElement.style.setProperty('--paper-size', (d >= 2 ? 256 / d : 128) + 'px');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <main class="doc">
+    <img class="doc-icon" src="../../assets/icon-dinodash.png" alt="" width="56" height="56" />
+    <h1>DinoDash &mdash; Support</h1>
+    <p>Tap anywhere on the start screen to begin, and tap to jump. Use the arrows to choose your dino.</p>
+    <h2>How do I play?</h2>
+    <p>Your dino runs on its own. Tap anywhere (or the arrow button) to jump over asteroids on the ground &mdash; but don&rsquo;t jump into the ones floating in the air.</p>
+    <h2>What does the roar button do?</h2>
+    <p>Every 100 points it lights up. Tap it to clear every asteroid on screen for a bonus.</p>
+    <h2>How do I turn the music off?</h2>
+    <p>Tap the music-note button on the start screen or at the top of the game. Sound effects stay on.</p>
+    <h2>Is the difficulty different for each dino?</h2>
+    <p>No. Every dino plays exactly the same &mdash; only its world and roar look different.</p>
+    <h2>Still stuck?</h2>
+    <p>Open an issue on <a href="https://github.com/akshaysantosh/DinoDash/issues" target="_blank" rel="noopener noreferrer">GitHub</a> or message me on <a href="https://www.linkedin.com/in/akshaysantosh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, and I&rsquo;ll get back to you.</p>
+    <p><a href="../privacy/">Privacy policy</a></p>
+    <p class="doc-foot"><a href="../../">&larr; akshaysantosh.github.io</a></p>
+  </main>
+</body>
+</html>

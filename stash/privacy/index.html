@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stash Privacy Policy — Akshay Santosh</title>
+  <meta name="description" content="Privacy policy for Stash." />
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" />
+  <link rel="stylesheet" href="../../style.css?v=17" />
+  <script>
+    /* Paper grain: a 128px speckle tile (28% of pixels, alpha up to 25%, warm brown), drawn at 1.5x
+       and repeated. Same recipe as the apps' PaperBackground. Deterministic, no image file. */
+    (function () {
+      try {
+        var n = 128, c = document.createElement('canvas'); c.width = c.height = n;
+        var ctx = c.getContext('2d'), img = ctx.createImageData(n, n), s = 1234567;
+        var rnd = function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+        for (var i = 0; i < n * n; i++) {
+          var a = rnd() < 0.28 ? 1 + Math.floor(rnd() * 64) : 0;
+          img.data[i * 4] = 90; img.data[i * 4 + 1] = 70; img.data[i * 4 + 2] = 45; img.data[i * 4 + 3] = a;
+        }
+        ctx.putImageData(img, 0, 0);
+        document.documentElement.style.setProperty('--paper-grain', 'url(' + c.toDataURL() + ')');
+        /* Specks are 2 device pixels wide on dense (phone) screens, 1 on standard ones. */
+        var d = window.devicePixelRatio || 1;
+        document.documentElement.style.setProperty('--paper-size', (d >= 2 ? 256 / d : 128) + 'px');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <main class="doc">
+    <img class="doc-icon" src="../../assets/icon-stash.png" alt="" width="56" height="56" />
+    <h1>Stash &mdash; Privacy Policy</h1>
+    <p class="doc-meta">Last updated: 26 October 2026</p>
+    <p>Stash is a personal app for saving links. It has no account, no ads and no analytics, and it does not track you.</p>
+    <h2>What Stash stores</h2>
+    <p>The links you save, their titles, images, notes and tags, and your preferences (such as the sort order). All of this is stored only on your iPhone. It is never sent to the developer or to any server operated by the developer.</p>
+    <h2>What leaves your device</h2>
+    <p>When you save a link, Stash asks that link&rsquo;s website for its title and preview image. For links to YouTube or X (Twitter) it uses their public oEmbed services, and for other links it uses Apple&rsquo;s link-preview service. These requests contain the link you chose. They go to the site that link belongs to (or to Apple), under their own privacy policies &mdash; not to the developer.</p>
+    <h2>What Stash does not do</h2>
+    <p>It does not collect personal information, use advertising or analytics services, share data with third parties, or track you across other apps and websites.</p>
+    <h2>Deleting your data</h2>
+    <p>Delete a link in the app to remove it, or delete the app to remove everything it stores.</p>
+    <h2>Children</h2>
+    <p>Stash does not knowingly collect any information from anyone, including children.</p>
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version will be posted at this address with an updated date.</p>
+    <h2>Contact</h2>
+    <p>Questions? Open an issue on <a href="https://github.com/akshaysantosh/Stash/issues" target="_blank" rel="noopener noreferrer">GitHub</a> or message me on <a href="https://www.linkedin.com/in/akshaysantosh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <p class="doc-foot"><a href="../../">&larr; akshaysantosh.github.io</a></p>
+  </main>
+</body>
+</html>

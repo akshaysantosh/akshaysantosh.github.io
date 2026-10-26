@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stash Support — Akshay Santosh</title>
+  <meta name="description" content="Help and support for Stash." />
+  <link rel="icon" type="image/png" href="../../assets/favicon.png" />
+  <link rel="stylesheet" href="../../style.css?v=17" />
+  <script>
+    /* Paper grain: a 128px speckle tile (28% of pixels, alpha up to 25%, warm brown), drawn at 1.5x
+       and repeated. Same recipe as the apps' PaperBackground. Deterministic, no image file. */
+    (function () {
+      try {
+        var n = 128, c = document.createElement('canvas'); c.width = c.height = n;
+        var ctx = c.getContext('2d'), img = ctx.createImageData(n, n), s = 1234567;
+        var rnd = function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+        for (var i = 0; i < n * n; i++) {
+          var a = rnd() < 0.28 ? 1 + Math.floor(rnd() * 64) : 0;
+          img.data[i * 4] = 90; img.data[i * 4 + 1] = 70; img.data[i * 4 + 2] = 45; img.data[i * 4 + 3] = a;
+        }
+        ctx.putImageData(img, 0, 0);
+        document.documentElement.style.setProperty('--paper-grain', 'url(' + c.toDataURL() + ')');
+        /* Specks are 2 device pixels wide on dense (phone) screens, 1 on standard ones. */
+        var d = window.devicePixelRatio || 1;
+        document.documentElement.style.setProperty('--paper-size', (d >= 2 ? 256 / d : 128) + 'px');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <main class="doc">
+    <img class="doc-icon" src="../../assets/icon-stash.png" alt="" width="56" height="56" />
+    <h1>Stash &mdash; Support</h1>
+    <p>Share a link from Safari, YouTube, Spotify or any app using <em>Save to Stash</em> in the Share Sheet, or tap + in the app and paste a link.</p>
+    <h2>Where is my data?</h2>
+    <p>Only on your iPhone. Stash has no account and no server. If you delete the app, your saved links go with it.</p>
+    <h2>A link saved without a title or picture.</h2>
+    <p>Some sites don&rsquo;t share a preview. You can edit the title, category, note and tags any time from the &hellip; menu on the link.</p>
+    <h2>How do I pin or get a random link?</h2>
+    <p>Swipe a link to the right (or long-press it) to pin it to <em>Up next</em> &mdash; up to three. Filter by a tag, then tap the dice for <em>Surprise me</em>.</p>
+    <h2>I don&rsquo;t see Stash in the Share Sheet.</h2>
+    <p>Scroll the app row of the Share Sheet to the end, tap <em>More</em>, and switch on <em>Save to Stash</em>.</p>
+    <h2>Still stuck?</h2>
+    <p>Open an issue on <a href="https://github.com/akshaysantosh/Stash/issues" target="_blank" rel="noopener noreferrer">GitHub</a> or message me on <a href="https://www.linkedin.com/in/akshaysantosh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, and I&rsquo;ll get back to you.</p>
+    <p><a href="../privacy/">Privacy policy</a></p>
+    <p class="doc-foot"><a href="../../">&larr; akshaysantosh.github.io</a></p>
+  </main>
+</body>
+</html>
